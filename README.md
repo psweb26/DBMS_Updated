@@ -239,17 +239,6 @@ online-exam-system/
 └── README.md
 ```
 
-## 🔒 Security Note
-
-This is a basic implementation. For production use, add:
-- Spring Security for authentication/authorization
-- Password encryption (BCrypt)
-- JWT tokens for API security
-- Input validation
-- Exception handling
-- HTTPS/SSL
-
-## 📝 License
 
 This project is for educational purposes.
 
