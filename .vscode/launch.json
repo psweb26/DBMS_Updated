@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-OnlineExaminationApplication<online-examination>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.exampleonlineexamination.twd.OnlineExaminationApplication",
+            "projectName": "online-examination",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

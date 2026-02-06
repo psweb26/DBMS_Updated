@@ -1,0 +1,81 @@
+{
+  "info": {
+    "name": "Online Examination System API",
+    "description": "Complete API collection for Online Examination System",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Get All Users",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8080/api/users"
+          }
+        },
+        {
+          "name": "Create User",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"password\": \"password123\",\n  \"role\": \"STUDENT\"\n}"
+            },
+            "url": "http://localhost:8080/api/users"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Exams",
+      "item": [
+        {
+          "name": "Get All Exams",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8080/api/exams"
+          }
+        },
+        {
+          "name": "Create Exam",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Java Programming\",\n  \"subject\": \"Computer Science\",\n  \"duration\": 60,\n  \"totalMarks\": 100,\n  \"startTime\": \"2026-03-01T10:00:00\",\n  \"endTime\": \"2026-03-01T11:00:00\",\n  \"createdBy\": 1\n}"
+            },
+            "url": "http://localhost:8080/api/exams"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Questions",
+      "item": [
+        {
+          "name": "Get Questions by Exam",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8080/api/questions/exam/1"
+          }
+        },
+        {
+          "name": "Create Question",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"examId\": 1,\n  \"questionText\": \"What is polymorphism?\",\n  \"questionType\": \"MCQ\",\n  \"marks\": 5\n}"
+            },
+            "url": "http://localhost:8080/api/questions"
+          }
+        }
+      ]
+    }
+  ]
+}
