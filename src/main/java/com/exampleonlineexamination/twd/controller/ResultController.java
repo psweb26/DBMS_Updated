@@ -27,6 +27,21 @@ public class ResultController {
     }
 
     /**
+     * Convert Result entity to ResultResponseDTO
+     */
+    private ResultResponseDTO convertToResponseDTO(Result result) {
+        ResultResponseDTO dto = new ResultResponseDTO();
+        dto.setId(result.getId());
+        dto.setAttemptId(result.getAttemptId());
+        dto.setScore(result.getScore());
+        dto.setGrade(result.getGrade());
+        dto.setPassStatus(result.getPassStatus());
+        dto.setCreatedAt(result.getCreatedAt());
+        dto.setUpdatedAt(result.getUpdatedAt());
+        return dto;
+    }
+
+    /**
      * Get all results
      */
     @GetMapping
