@@ -1,47 +1,32 @@
 package com.exampleonlineexamination.twd.model;
 
 import jakarta.persistence.*;
-import java.time.LocalDateTime;
+import jakarta.validation.constraints.*;
 
 @Entity
 @Table(name = "user")
 public class User {
-
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private Integer userId;
-
-    @Column(name = "name")
+    
+    @NotBlank(message = "Name required")
+    @Column(name = "name", nullable = false)
     private String name;
-
-    @Column(name = "email", unique = true)
+    
+    @Email(message = "Invalid email")
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
-
+    
+    @NotBlank(message = "Password required")
     @Column(name = "password", nullable = false)
     private String password;
-
-    @Column(name = "role")
+    
+    @NotBlank(message = "Role required")
+    @Column(name = "role", nullable = false)
     private String role;
-
-    @Column(name = "created_at", updatable = false)
-    private LocalDateTime createdAt;
-
-    // Default constructor
-    public User() {}
-
-    // Constructor with fields
-    public User(String name, String email, String password, String role) {
-        this.name = name;
-        this.email = email;
-        this.password = password;
-        this.role = role;
-    }
-
-    @PrePersist
-    protected void onCreate() {
-        createdAt = LocalDateTime.now();
-    }
 
     // Getters and Setters
     public Integer getUserId() {
@@ -84,14 +69,6 @@ public class User {
         this.role = role;
     }
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
     @Override
     public String toString() {
         return "User{" +
@@ -99,7 +76,6 @@ public class User {
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", role='" + role + '\'' +
-                ", createdAt=" + createdAt +
                 '}';
     }
 }
